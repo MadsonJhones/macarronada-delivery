@@ -145,7 +145,7 @@ function finishOrder(){
     mensagem += `📦 TOTAL: R$ ${total.toFixed(2)}`;
 
     const telefoneLoja =
-        "5586999999999";
+        "5586999343431";
 
     window.open(
         `https://wa.me/${telefoneLoja}?text=${mensagem}`,
