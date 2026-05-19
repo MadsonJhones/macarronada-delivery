@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Macarronada Express</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+</head>
+
+<body>
+
+    <!-- HEADER -->
+
+    <header class="header">
+
+        <div class="logo">
+            🍝 Macarronada Express
+        </div>
+
+        <nav>
+
+            <a href="#montagem">
+                Monte Sua Massa
+            </a>
+
+            <a href="#bebidas">
+                Bebidas
+            </a>
+
+            <a href="#sobre">
+                Sobre
+            </a>
+
+        </nav>
+
+    </header>
+
+    <!-- HERO -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <h1>
+                Monte sua Macarronada
+            </h1>
+
+            <p>
+                Escolha massa, molho, adicionais e bebidas.
+            </p>
+
+            <a href="#montagem" class="btn">
+                Fazer Pedido
+            </a>
+
+        </div>
+
+    </section>
+
+    <!-- MONTAGEM -->
+
+    <section
+        id="montagem"
+        class="builder-section"
+    >
+
+        <h2>
+            🍝 Monte sua Macarronada
+        </h2>
+
+        <div class="builder-container">
+
+            <!-- MASSA -->
+
+            <div class="builder-card">
+
+                <h3>
+                    Escolha a Massa
+                </h3>
+
+                <select id="massa">
+
+                    <option>
+                        Espaguete
+                    </option>
+
+                    <option>
+                        Penne
+                    </option>
+
+                    <option>
+                        Talharim
+                    </option>
+
+                    <option>
+                        Parafuso
+                    </option>
+
+                    <option>
+                        Fettuccine
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- MOLHO -->
+
+            <div class="builder-card">
+
+                <h3>
+                    Escolha o Molho
+                </h3>
+
+                <select id="molho">
+
+                    <option>
+                        Bolonhesa
+                    </option>
+
+                    <option>
+                        Carbonara
+                    </option>
+
+                    <option>
+                        Molho Branco
+                    </option>
+
+                    <option>
+                        4 Queijos
+                    </option>
+
+                    <option>
+                        Pesto
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- TAMANHO -->
+
+            <div class="builder-card">
+
+                <h3>
+                    Tamanho
+                </h3>
+
+                <select id="tamanho">
+
+                    <option value="Pequena|24.90">
+                        Pequena - R$ 24,90
+                    </option>
+
+                    <option value="Média|34.90">
+                        Média - R$ 34,90
+                    </option>
+
+                    <option value="Grande|44.90">
+                        Grande - R$ 44,90
+                    </option>
+
+                </select>
+
+            </div>
+
+            <!-- ADICIONAIS -->
+
+            <div class="builder-card">
+
+                <h3>
+                    Adicionais
+                </h3>
+
+                <div class="checkbox-group">
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            value="Bacon|6"
+                        >
+                        Bacon (+R$ 6)
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            value="Calabresa|5"
+                        >
+                        Calabresa (+R$ 5)
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            value="Frango|7"
+                        >
+                        Frango (+R$ 7)
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            value="Parmesão|4"
+                        >
+                        Parmesão (+R$ 4)
+                    </label>
+
+                    <label>
+                        <input
+                            type="checkbox"
+                            value="Cheddar|5"
+                        >
+                        Cheddar (+R$ 5)
+                    </label>
+
+                </div>
+
+            </div>
+
+            <!-- QUANTIDADE -->
+
+            <div class="builder-card">
+
+                <h3>
+                    Quantidade
+                </h3>
+
+                <input
+                    type="number"
+                    id="quantidade"
+                    value="1"
+                    min="1"
+                >
+
+            </div>
+
+            <!-- OBS -->
+
+            <div class="builder-card">
+
+                <h3>
+                    Observações
+                </h3>
+
+                <textarea
+                    id="observacoes"
+                    placeholder="Ex: sem cebola..."
+                ></textarea>
+
+            </div>
+
+        </div>
+
+        <button
+            class="main-order-btn"
+            onclick="addCustomPasta()"
+        >
+            Adicionar ao Carrinho
+        </button>
+
+    </section>
+
+    <!-- BEBIDAS -->
+
+    <section
+        id="bebidas"
+        class="drinks-section"
+    >
+
+        <h2>
+            🥤 Bebidas
+        </h2>
+
+        <div class="drinks-grid">
+
+            <!-- COCA -->
+
+            <div class="drink-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1629203851122-3726ecdf080e?q=80&w=1200&auto=format&fit=crop"
+                    alt="Coca-Cola"
+                >
+
+                <h3>
+                    Coca-Cola 2L
+                </h3>
+
+                <p>
+                    R$ 14,00
+                </p>
+
+                <button onclick='openModal({
+                    name:"Coca-Cola 2L",
+                    description:"Refrigerante Coca-Cola 2 litros.",
+                    price:14,
+                    image:"https://images.unsplash.com/photo-1629203851122-3726ecdf080e?q=80&w=1200&auto=format&fit=crop"
+                })'>
+                    Ver Produto
+                </button>
+
+            </div>
+
+            <!-- GUARANA -->
+
+            <div class="drink-card">
+
+                <img
+                    src="https://images.unsplash.com/photo-1581006852262-e4307cf6283a?q=80&w=1200&auto=format&fit=crop"
+                    alt="Guaraná"
+                >
+
+                <h3>
+                    Guaraná 2L
+                </h3>
+
+                <p>
+                    R$ 12,00
+                </p>
+
+                <button onclick='openModal({
+                    name:"Guaraná 2L",
+                    description:"Guaraná gelado 2 litros.",
+                    price:12,
+                    image:"https://images.unsplash.com/photo-1581006852262-e4307cf6283a?q=80&w=1200&auto=format&fit=crop"
+                })'>
+                    Ver Produto
+                </button>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ENDEREÇO -->
+
+    <section class="address-section">
+
+        <h2>
+            📍 Endereço de Entrega
+        </h2>
+
+        <div class="address-form">
+
+            <input
+                type="text"
+                id="nome"
+                placeholder="Seu nome"
+            >
+
+            <input
+                type="text"
+                id="telefone"
+                placeholder="Telefone"
+            >
+
+            <input
+                type="text"
+                id="rua"
+                placeholder="Rua"
+            >
+
+            <input
+                type="text"
+                id="numero"
+                placeholder="Número"
+            >
+
+            <input
+                type="text"
+                id="bairro"
+                placeholder="Bairro"
+            >
+
+            <input
+                type="text"
+                id="cidade"
+                placeholder="Cidade"
+            >
+
+        </div>
+
+    </section>
+
+    <!-- CARRINHO -->
+
+    <aside class="cart">
+
+        <h2>
+            🛒 Carrinho
+        </h2>
+
+        <div id="cart-items"></div>
+
+        <h3 id="cart-total">
+            Total: R$ 0,00
+        </h3>
+
+        <button
+            class="checkout-btn"
+            onclick="finishOrder()"
+        >
+            Finalizar Pedido
+        </button>
+
+    </aside>
+
+    <!-- MODAL -->
+
+    <div class="modal" id="productModal">
+
+        <div class="modal-content">
+
+            <span
+                class="close-modal"
+                onclick="closeModal()"
+            >
+                &times;
+            </span>
+
+            <img
+                id="modalImage"
+                src=""
+                alt="Produto"
+            >
+
+            <h2 id="modalTitle"></h2>
+
+            <p id="modalDescription"></p>
+
+            <div
+                class="modal-price"
+                id="modalPrice"
+            ></div>
+
+            <div class="modal-quantity">
+
+                <button onclick="decreaseQty()">
+                    -
+                </button>
+
+                <span id="modalQty">
+                    1
+                </span>
+
+                <button onclick="increaseQty()">
+                    +
+                </button>
+
+            </div>
+
+            <button
+                class="modal-add-btn"
+                onclick="confirmModalProduct()"
+            >
+                Adicionar ao Carrinho
+            </button>
+
+        </div>
+
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
